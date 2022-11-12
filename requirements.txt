@@ -132,7 +132,9 @@ markupsafe==2.1.1
     #   jinja2
     #   nbconvert
 matplotlib==3.6.2
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   seaborn
 matplotlib-inline==0.1.6
     # via
     #   ipykernel
@@ -178,6 +180,7 @@ numpy==1.23.4
     #   contourpy
     #   matplotlib
     #   pandas
+    #   seaborn
 packaging==21.3
     # via
     #   build
@@ -187,7 +190,9 @@ packaging==21.3
     #   nbconvert
     #   qtpy
 pandas==1.5.1
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   seaborn
 pandocfilters==1.5.0
     # via nbconvert
 parso==0.8.3
@@ -262,6 +267,8 @@ qtconsole==5.4.0
     # via jupyter
 qtpy==2.3.0
     # via qtconsole
+seaborn==0.12.1
+    # via -r requirements.in
 send2trash==1.8.0
     # via
     #   jupyter-server
