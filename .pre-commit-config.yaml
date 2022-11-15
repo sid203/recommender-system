@@ -8,3 +8,10 @@ repos:
         language: system
         always_run: true
         pass_filenames: false
+      - id: black
+        name: Black code formatting
+        entry: black app/ tests/
+        stages: [commit]
+        language: system
+        always_run: true
+        pass_filenames: false

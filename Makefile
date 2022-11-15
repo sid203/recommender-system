@@ -8,3 +8,6 @@ typehint:
 .PHONY: clean
 clean:
 	find . -type d -name .mypy_cache | xargs rm -fr
+.PHONY: black
+black:
+	black app/ tests/
