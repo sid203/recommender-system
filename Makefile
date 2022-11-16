@@ -11,3 +11,12 @@ clean:
 .PHONY: black
 black:
 	black app/ tests/
+.PHONY: dockerbuild
+dockerbuild:
+	docker build -t registry.heroku.com/pagerank-webapp/web .
+.PHONY: dockerrun-local-mount
+dockerrun-local-mount:
+	docker run --rm -v ${CURDIR}/app/resources/:/recommender-system/app/resources/ --name recommender.container.light pagerank-light:$(version) --userid=$(user)
+.PHONY: dockerrun
+dockerrun:
+	docker run --rm --name pagerank.webapp.container -e PORT=8080 -p 8080:8080 registry.heroku.com/pagerank-webapp/web:latest

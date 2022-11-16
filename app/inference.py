@@ -30,6 +30,18 @@ def get_page_rank_scores(
     return scores
 
 
+def get_page_rank_score_single_user(
+    user: int, item_item_graph: nx.DiGraph, user_item_graph: nx.Graph
+) -> Dict[str, float]:
+    return {
+        movie: score
+        for movie, score in nx.pagerank(
+            item_item_graph, personalization=preference_vector(user, user_item_graph)
+        ).items()
+        if movie not in list(user_item_graph.neighbors(user))
+    }
+
+
 def top_recommendations(results: Dict, k: int, mapping_file: pd.DataFrame) -> None:
 
     userid: int = list(results)[0]
@@ -63,6 +75,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     ROOT: str = os.getenv("ROOT_FOLDER", default="")
+    print(os.getcwd())
+    print(ROOT)
+    print(os.path.join(ROOT, "app/resources/item_item_graph.p"))
     item_item_graph = nx.read_gpickle(os.path.join(ROOT, "app/resources/item_item_graph.p"))
     user_item_graph = nx.read_gpickle(os.path.join(ROOT, "app/resources/user_item_graph.p"))
     user_item_graph_test = nx.read_gpickle(os.path.join(ROOT, "app/resources/user_item_graph_test.p"))

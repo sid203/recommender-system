@@ -1,0 +1,11 @@
+# exlude pickle files from copying into docker container
+#**/*.p
+#**/*.csv
+
+# heavy file
+app/resources/rating.csv
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
