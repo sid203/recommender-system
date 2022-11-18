@@ -3,7 +3,9 @@
 ### Set up
 
 Download `rating.csv` & `movie.csv` files from [kaggle link](https://www.kaggle.com/datasets/grouplens/movielens-20m-dataset?select=rating.csv)
-and extract it under `app/resources/` folder. 
+
+Download also the trained model pickle files at this [google drive link](https://drive.google.com/file/d/1kD8-d98yrLy2BbmyQpzhMeW21bS64750/view?usp=sharing)
+Please unzip these files and put it under `app/resources/` folder. 
 
 Environment variables to set 
 ```bash
